@@ -1,0 +1,77 @@
+openapi: 3.0.0
+
+info:
+  title: Статус заказа API
+  version: 1.0.0
+  description: API получения информации об изменении статуса заказа от внешнего сервиса доставки.
+
+servers:
+  - url: https://api.marketplace.com
+
+tags:
+  - name: Заказы
+    description: Изменение статуса заказа
+
+paths:
+  /orders/status:
+    post:
+      tags:
+        - Заказы
+      summary: Получить изменение статуса заказа
+      description: Внешний сервис отправляет уведомление об изменении статуса заказа.
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderStatusRequest'
+
+      responses:
+        '200':
+          description: Статус успешно изменен
+
+        '400':
+          description: Некорректные данные
+
+        '404':
+          description: Заказ не найден
+
+        '500':
+          description: Ошибка сервера
+
+
+components:
+
+  schemas:
+
+    OrderStatusRequest:
+      type: object
+      required:
+        - order_id
+        - status
+        - updated_at
+
+      properties:
+
+        order_id:
+          type: string
+          description: Идентификатор заказа
+          example: 12345
+
+        status:
+          type: string
+          description: Новый статус заказа
+          enum:
+            - CREATED
+            - PAID
+            - ASSEMBLING
+            - DELIVERED
+            - RECEIVED
+            - RETURNED
+
+        updated_at:
+          type: string
+          format: date-time
+          description: Дата изменения статуса
+          example: "2026-07-30"
