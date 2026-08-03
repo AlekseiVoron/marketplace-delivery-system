@@ -30,7 +30,7 @@
 ---
 
 ## 🔌 Интеграционный контракт (OpenAPI 3.0)
-Спецификация API расположена в файле [`api/openapi.yaml`](./api/openapi.yaml).
+Спецификация API расположена в файле [`openapi.yaml`](openapi.yaml).
 
 **Основной эндпоинт:** `POST /orders/status`
 **Коды ответов:** `200 OK`, `400 Bad Request`, `404 Not Found`, `500 Internal Server Error`.
