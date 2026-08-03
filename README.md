@@ -18,14 +18,14 @@
 ## 🔄 Бизнес-процесс (BPMN 2.0)
 Процесс обработки заказа, доставки и отправки уведомлений клиенту:
 
-![BPMN Схема](diagrams/bpmn/process_to_be.png)
+![BPMN Схема](process_to_be.png)
 
 ---
 
 ## 📊 Статусная модель (UML State Machine)
 Переходы статусов заказа от создания до выдачи/возврата:
 
-![State Machine](diagrams/uml/state_machine.png)
+![State Machine](state_machine.png)
 
 ---
 
